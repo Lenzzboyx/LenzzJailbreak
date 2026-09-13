@@ -1,0 +1,128 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JAILBREAK ALL AI</title>
+<style>
+:root{--bg:#08090d;--surface:#11131a;--p:#ddd;--m:#9095a0;--b:#292c35;--t:#f5f7fb;--ok:#55df91;--bad:#ff6577}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:14px Inter,system-ui,Arial}button,input,textarea,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}.wrap{width:min(1100px,92%);margin:auto}.card{background:#11131add;border:1px solid var(--b);border-radius:22px;box-shadow:0 20px 70px #0008;backdrop-filter:blur(18px)}#bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;filter:brightness(.28)}#shade{position:fixed;inset:0;background:#05060acc;z-index:-2}.screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px}.auth{width:min(450px,100%);padding:30px}.brand{text-align:center}.logo{margin:auto;width:76px;height:76px;border-radius:24px;display:grid;place-items:center;font-size:34px;background:#aaa4;border:1px solid #fff2}h1{font-size:25px;letter-spacing:.08em}.muted,.sub{color:var(--m);font-size:12px}.tabs{display:flex;gap:7px;background:#0005;padding:5px;border-radius:13px;margin:22px 0}.tabs button{flex:1;padding:12px;border:0;border-radius:10px;background:transparent;color:var(--m)}.tabs button.active{background:#fff;color:#111}label{display:block;color:var(--m);font-size:12px;margin:13px 0 6px}input,textarea,select{width:100%;padding:13px;border-radius:12px;border:1px solid var(--b);background:#080a0f;color:var(--t);outline:0}textarea{min-height:145px}.btn,.small{border:1px solid var(--b);border-radius:12px;padding:12px;background:#fff;color:#111;font-weight:800}.btn{width:100%;margin-top:15px}.small{background:#ffffff0a;color:var(--t)}.note{text-align:center;color:var(--m);font-size:11px;margin-top:12px}
+.loading{position:fixed;inset:0;background:#07080c;z-index:20;display:none;align-items:center;justify-content:center}.loader{width:min(440px,90%);padding:28px;text-align:center}.loaderTitle{font-weight:900;letter-spacing:.3em}.spin{width:52px;height:52px;border:3px solid #fff1;border-top-color:#fff;border-radius:50%;animation:s 1s linear infinite;margin:23px auto}@keyframes s{to{transform:rotate(360deg)}}.prog{height:7px;background:#fff1;border-radius:99px;overflow:hidden}.bar{height:100%;width:0;background:#fff;transition:.15s}.loadtxt{color:var(--m);font-size:12px;margin:12px}.video{width:100%;max-height:230px;object-fit:cover;border-radius:16px;margin:18px 0}
+#app{display:none;padding-bottom:40px}.top{position:sticky;top:0;z-index:5;background:#08090de8;backdrop-filter:blur(16px);border-bottom:1px solid var(--b)}.topin{height:64px;display:flex;justify-content:space-between;align-items:center}.title{font-weight:900;letter-spacing:.08em}.nav{display:flex;gap:7px;overflow:auto;padding:8px 0}.nav button{white-space:nowrap;border:1px solid var(--b);background:#fff0;color:var(--m);padding:10px;border-radius:10px;font-size:11px}.nav button.active{background:#fff;color:#111}main{padding-top:20px}.hero,.panel{padding:22px;margin-bottom:16px}.hero h2{margin:0 0 6px}.profile{display:flex;align-items:center;gap:13px;margin-top:18px}.avatar{width:52px;height:52px;border-radius:17px;background:#fff1;display:grid;place-items:center;font-size:22px}.badge{border:1px solid var(--b);padding:5px 9px;border-radius:99px;font-size:10px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.airow{display:flex;gap:8px;overflow:auto;padding-bottom:8px}.ai{min-width:120px;border:1px solid var(--b);background:#fff0;color:var(--m);padding:13px;border-radius:13px}.ai.sel{border-color:var(--p);color:#fff}.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.role{border:1px solid var(--b);padding:14px;text-align:center;border-radius:13px;background:#fff0}.role span{display:block;color:var(--m);font-size:10px}.code{white-space:pre-wrap;word-break:break-word;background:#050609;border:1px solid var(--b);padding:14px;border-radius:13px;max-height:350px;overflow:auto;font:12px monospace}.doc{white-space:pre-wrap;line-height:1.65;max-height:650px;overflow:auto;font:13px Georgia}.notice{padding:12px;border:1px solid var(--b);border-radius:12px;background:#fff0;margin-top:10px;font-size:12px}.danger{color:var(--bad)}footer{text-align:center;color:#666;font-size:10px;margin:30px}
+.themegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.theme{padding:15px;border:1px solid var(--b);border-radius:13px;background:var(--surface)}@media(max-width:700px){.grid{grid-template-columns:1fr}.roles{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+<video id="bg" autoplay muted loop playsinline></video><div id="shade"></div>
+<section id="auth" class="screen"><div class="card auth"><div class="brand"><div class="logo">👤</div><h1>JAILBREAK ALL AI</h1><div class="sub">AI research workspace</div></div>
+<div class="tabs"><button id="tr" class="active" onclick="authTab(1)">Create Account</button><button id="tl" onclick="authTab(0)">📥 Masuk</button></div>
+<div id="reg"><div class="sub">Isi nama dan sandi untuk membuat akun pengunjung.</div><label>Username</label><input id="ru"><label>Password</label><input id="rp" type="password"><button class="btn" onclick="register()">Create Account</button></div>
+<div id="log" class="hidden"><div class="sub">Masuk dengan username dan password kamu.</div><label>Username</label><input id="lu"><label>Password</label><input id="lp" type="password"><button class="btn" onclick="login()">⎋ MASUK</button></div><div id="msg" class="note"></div></div></section>
+<section id="l1" class="loading"><div class="loader card"><div class="loaderTitle">X.I.T.Z G.P T</div><div class="spin"></div><div class="prog"><div id="bar" class="bar"></div></div><div id="lt" class="loadtxt">Initializing...</div><div id="lc" class="note"></div></div></section>
+<section id="l2" class="loading"><div class="loader card"><div class="loaderTitle">✧ ACCESS GRANTED</div><video id="intro" class="video" playsinline loop controls><source src="https://player.cloudinary.com/embed/?cloud_name=ugli1fcb&public_id=ssstik.io__arabellatoukito_1789123158239"></video><div class="spin"></div><div class="loadtxt">Preparing workspace...</div><button class="btn" onclick="finish()">CONTINUE</button><div class="note">Audio loading kedua berdiri sendiri. Autoplay audio dapat dibatasi browser.</div></div></section>
+<div id="app"><header class="top"><div class="wrap topin"><b class="title">✧ JAILBREAK ALL AI</b><button class="small" onclick="logout()">⎋</button></div><div class="wrap nav">
+<button data-p="home" class="active">⌂ HOME</button><button data-p="creator">✧ CREATOR JAILBREAK</button><button data-p="deploy">◈ AUTO DEPLOY</button><button data-p="source">⌘ GET SOURCE</button><button data-p="center">◇ JAILBREAK CENTER</button><button data-p="community">♧ COMMUNITY</button><button id="an" class="hidden" data-p="admin">♛ ADMIN PANEL</button><button data-p="themes">◈ THEMES</button></div></header><main class="wrap">
+<section id="home" class="page"><div class="card hero"><h2>Selamat datang, <span id="wn"></span></h2><div class="sub">Workspace AI dengan interface royal dan responsive.</div><div class="profile"><div class="avatar">👤</div><div><b id="pn"></b><div class="muted">Member ID: <span id="mid"></span></div></div><span id="rb" class="badge"></span></div></div><div class="grid"><div class="card panel"><h3>♛ Access</h3><div class="muted">Kode unik tersimpan lokal.</div><button class="btn" onclick="showCode()">LIHAT CODE</button><div id="co" class="notice hidden"></div></div><div class="card panel"><h3>✧ AI Selector</h3><div id="aih" class="airow"></div></div></div><div class="card panel"><h3>◇ Access Banner</h3><div id="roles" class="roles"></div></div></section>
+<section id="creator" class="page hidden"><div class="card panel"><h2>✧ CREATOR JAILBREAK</h2><p class="muted">Creator untuk pengujian keamanan AI yang berizin.</p><div id="aic" class="airow"></div><label>ADD JB AI — masukkan prompt di sini...</label><textarea id="jb" placeholder="Tulis prompt pengujian..."></textarea><label>UPLOAD JB AI</label><input id="jbf" type="file" accept=".txt,.json,.md"><button class="btn" onclick="addJB()">ADD JB AI</button><div id="jbl"></div></div></section>
+<section id="deploy" class="page hidden"><div class="card panel"><h2>◈ AUTO DEPLOY</h2><div class="tabs"><button id="dm1" class="active" onclick="dm(1)">Masukkan Code</button><button id="dm2" onclick="dm(0)">Upload File</button></div><div id="dc"><label>Tempel atau ketik code</label><textarea id="di" placeholder="<!DOCTYPE html>"></textarea></div><div id="df" class="hidden"><label>Upload File .html</label><input id="hf" type="file" accept=".html"></div><button class="btn" onclick="deploy()">NEXT</button><div id="dr"></div></div></section>
+<section id="source" class="page hidden"><div class="card panel"><h2>⌘ GET SOURCE CODE</h2><p class="muted">Ambil HTML publik dari URL yang mengizinkan akses browser/CORS.</p><label>Website URL</label><input id="su" placeholder="https://example.com"><button class="btn" onclick="source()">GENERATE CODE</button><div id="sm" class="notice hidden"></div><pre id="so" class="code hidden"></pre><button id="sp" class="btn hidden" onclick="preview()">PREVIEW</button></div></section>
+<section id="center" class="page hidden"><div class="card panel"><h2>◇ JAILBREAK CENTER — PANDUAN & DOKUMENTASI</h2><div class="doc">1. DEFINISI JAILBREAK
+
+Jailbreak dalam konteks LLM adalah teknik untuk melewati batasan yang diterapkan pada model AI, baik berupa safety filter, alignment training, maupun instruction hierarchy.
+
+Tujuan dokumentasi: riset keamanan, red team, dan pemahaman teknis tentang pengujian serta penguatan model.
+
+2. KLASIFIKASI TEKNIK
+
+Roleplay / Persona — Medium — Persona Detection
+Encoding — Low/Medium — Input Decoding
+Fragmentation — Medium — Context Tracking
+Meta-Prompt — Instruction hierarchy testing
+Language Switch — Multilingual filter testing
+Token Smuggling — Unicode / Homoglyph normalization
+Payload Split — Semantic analysis
+Crescendo — Gradual escalation / intent tracking
+
+3. ANATOMI PROMPT JAILBREAK
+
+[1] PREFACE — konteks baru
+[2] AUTHORITY CLAIM — klaim izin
+[3] REFRAME — ubah tujuan
+[4] INSTRUCTION — payload utama
+[5] LOCK — uji konsistensi/backout
+
+4. CONTOH TEKNIK KLASIK
+
+DAN, Developer Mode, Grandma Exploit, dan Hypothetical Scenario dapat dipakai sebagai kategori pengujian defensif.
+
+5. TEKNIK ENCODING
+
+Base64, ROT13, Hex, Leetspeak, dan Homoglyph dapat digunakan sebagai transformasi input untuk menguji decoding dan normalisasi.
+
+6. MULTI-TURN ATTACK (CRESCENDO)
+
+Fase 1 — Rapport Building
+Fase 2 — Academic Framing
+Fase 3 — Specific Probe
+Fase 4 — Payload Delivery
+
+7. DEFENSE MECHANISM
+
+Input Filter → Intent Classifier → Constitutional/Safety Check → Output Filter → Sandbox.
+Tambahkan rate limit, multi-turn tracking, adversarial training, logging, dan disclosure.
+
+8. FRAMEWORK RED TEAM
+
+Uji hanya model/endpoint yang kamu miliki izin. Dokumentasikan scope, reproduksi, dampak, dan mitigasi.
+
+9. SCRIPT SCANNER RED TEAM
+
+Gunakan scanner pada endpoint sendiri atau yang memiliki izin. Hindari pengujian layanan publik tanpa izin.
+
+10. ETIKA & LEGAL RED TEAM
+
+DO: test dengan izin, dokumentasi, scope terbatas, sandbox, dan laporkan vulnerability melalui channel resmi.
+DON'T: menguji model publik tanpa izin, mendistribusikan payload bypass tanpa konteks, mengeksploitasi data orang lain, atau membuat konten ilegal.
+
+11. REFERENSI AKADEMIK
+
+Universal and Transferable Adversarial Attacks
+Jailbroken: How Does LLM Safety Training Fail?
+The Crescendo Multi-Turn LLM Jailbreak
+Many-shot Jailbreaking
+Sleeper Agents
+Constitutional AI
+
+12. CHEATSHEET RINGKAS
+
+Attack vectors: Roleplay, Encoding, Fragmentation, Language Switching, Multi-turn, Hypothetical framing, Authority claim, Token smuggling.
+
+Defense: Input → Intent → Constitutional → Output → Sandbox.</div></div></section>
+<section id="community" class="page hidden"><div class="card panel"><h2>♧ SELECT COMMUNITY</h2><div class="notice">◉ SALURAN WHATSAPP<br><span class="muted">Coming soon</span></div><div class="notice">◉ DISCORD OFFICIAL<br><span class="muted">Coming soon</span></div></div></section>
+<section id="admin" class="page hidden"><div id="ag" class="card panel"><h2>♛ ADMIN PANEL</h2><p class="muted">Masukkan username dan password Owner secara manual.</p><label>USERNAME</label><input id="ou" placeholder="Username Owner"><label>PASSWORD</label><input id="op" type="password" placeholder="Password Owner"><button class="btn" onclick="unlock()">ACCESS ADMIN</button><div id="am" class="note"></div></div><div id="ac" class="hidden">
+<div class="grid"><div class="card panel"><h3>◇ PANEL CONTROL</h3><label>FIND MEMBER CODE</label><input id="fc"><button class="btn" onclick="findM()">FIND MEMBER CODE</button><div id="fr" class="notice hidden"></div><label>Code member</label><input id="xd"><button class="btn danger" onclick="delM()">DELETE MEMBER</button></div><div class="card panel"><h3>♧ BANNED PANEL</h3><label>Add username</label><input id="bu"><label>Add code member</label><input id="bc"><button class="btn danger" onclick="ban()">BANNED</button></div></div>
+<div class="card panel"><h3>🔄 CONTROL UPDATE WEB</h3><div class="grid"><div><label>Force Update</label><select><option>Nonaktif</option><option>Aktif</option></select><label>Latest Version</label><input id="lv" value="1.0.0"><label>APK Download URL</label><input placeholder="https://..."></div><div><label>Update Changelog</label><textarea placeholder="Daftar perubahan"></textarea><label>Custom Update Message</label><input placeholder="Update tersedia..."></div></div><label>Scheduled Update</label><input type="datetime-local"><button class="btn" onclick="alert('Update control tersimpan di local UI.')">SAVE UPDATE CONTROL</button></div>
+<div class="card panel"><h3>✧ PANEL COSTUM PENGUMUMAN</h3><textarea id="ann" placeholder="Tulis pengumuman..."></textarea><button class="btn" onclick="alert('Pengumuman disimpan di sesi admin.')">PUBLISH ANNOUNCEMENT</button></div></div></section>
+<section id="themes" class="page hidden"><div class="card panel"><h2>◈ THEMES</h2><div id="tg" class="themegrid"></div></div></section><footer>JAILBREAK ALL AI · Local Workspace · 2026</footer></main></div>
+<script>
+const OWNER={u:"Kenziee",p:"Antiban22"}, AI=["SEMUA","DEEPSEA","CHATGPT","CLAUDE","DOLA","GEMINI","META AI","PERPLEXITY","SEEK AI","QWEN","COPILOT","MANUS"],ROLES=["MEMBER","VIP","RESELLER","MODERATOR","DEVELOPER","OWNER"];
+const T={"DEFAULT":{},"MIDNIGHT LUXE":{"--bg":"#0A0E27","--surface":"#151A35","--p":"#C9A961","--t":"#F5F5F7","--m":"#9CA3AF","--b":"#2A3151"},"OCEAN DEPTH":{"--bg":"#0F172A","--surface":"#1E293B","--p":"#38BDF8","--t":"#F1F5F9","--m":"#94A3B8","--b":"#334155"},"ROSE NOIR":{"--bg":"#1A0F14","--surface":"#2A1A22","--p":"#E8B4B8","--t":"#FBF7F4","--m":"#A89098","--b":"#3D2830"},"FOREST SAGE":{"--bg":"#0D1B0F","--surface":"#1A2E1F","--p":"#7FB069","--t":"#F5F1E8","--m":"#A8B5A0","--b":"#2A3E2F"},"MONOCHROME NOIR":{"--bg":"#0D0D0D","--surface":"#1A1A1A","--p":"#fff","--t":"#fff","--m":"#808080","--b":"#2E2E2E"},"NEON CYBERPUNK":{"--bg":"#0A0118","--surface":"#1A0B2E","--p":"#FF2E97","--t":"#fff","--m":"#B8A8D9","--b":"#2D1B4E"},"CLASSIC IVORY":{"--bg":"#FAF7F2","--surface":"#fff","--p":"#1A1A1A","--t":"#1A1A1A","--m":"#6B6B6B","--b":"#E5DFD5"}};
+const $=x=>document.getElementById(x), users=()=>JSON.parse(localStorage.jusers||"[]"), save=a=>localStorage.jusers=JSON.stringify(a);
+function authTab(x){reg.classList.toggle("hidden",!x);log.classList.toggle("hidden",x);tr.classList.toggle("active",x);tl.classList.toggle("active",!x);msg.textContent=""}
+function id(){return"JAI-"+Math.random().toString(36).slice(2,8).toUpperCase()+"-"+Math.floor(100+Math.random()*900)}
+function register(){let u=ru.value.trim(),p=rp.value;if(!u||!p)return msg.textContent="Username dan password wajib diisi.";let a=users();if(a.some(x=>x.u.toLowerCase()==u.toLowerCase()))return msg.textContent="Username sudah digunakan.";let z={u,p,id:id(),role:"MEMBER",ban:false,jb:[]};a.push(z);save(a);load(z,true)}
+function login(){let u=lu.value,p=lp.value;if(u==OWNER.u&&p==OWNER.p)return load({u,id:"OWNER-000001",role:"OWNER",jb:[]});let z=users().find(x=>x.u==u&&x.p==p);if(!z)return msg.textContent="Username atau password salah.";if(z.ban)return msg.textContent="Akun dibanned.";load(z)}
+function load(z,newA){auth.classList.add("hidden");l1.style.display="flex";let n=0,s=newA?["Monitoring loading","Account created...","Analisis account...","Analisis username...","Password analysis...","Create account succesfull"]:["Monitoring login...","Analisis account...","Analisis username...","Password analysis...","Access verified..."];let q=setInterval(()=>{n+=2;bar.style.width=n+"%";lt.textContent=s[Math.min(s.length-1,Math.floor(n/(100/s.length)))];lc.textContent=n>85?"✓ Verification complete":"○ Processing";if(n>=100){clearInterval(q);setTimeout(()=>load2(z),500)}},35)}
+function load2(z){l1.style.display="none";l2.style.display="flex";l2.dataset.z=JSON.stringify(z);intro.volume=1;intro.muted=false;intro.play().catch(()=>{});setTimeout(finish,7000)}
+function finish(){open(JSON.parse(l2.dataset.z));l2.style.display="none"}
+function open(z){localStorage.session=JSON.stringify(z);app.style.display="block";wn.textContent=pn.textContent=z.u;mid.textContent=z.id;rb.textContent=z.role;an.classList.toggle("hidden",z.role!="OWNER");render();renderJB()}
+function logout(){localStorage.removeItem("session");location.reload()}
+function render(){let h=AI.map((x,i)=>`<button class="ai ${i?"":"sel"}" onclick="sel(this)">${x}</button>`).join("");aih.innerHTML=aic.innerHTML=h;roles.innerHTML=ROLES.map(x=>`<div class="role ${x=="OWNER"&&JSON.parse(localStorage.session).role!="OWNER"?"hidden":""}"><b>${x}</b><span>Access tier</span></div>`).join("");tg.innerHTML=Object.keys(T).map(x=>`<div class="theme" onclick="theme('${x}')"><b>${x}</b><div class="muted">Apply theme</div></div>`).join("")}
+function sel(e){[...e.parentElement.children].forEach(x=>x.classList.remove("sel"));e.classList.add("sel")}
+function showCode(){co.classList.remove("hidden");co.textContent="✧ "+JSON.parse(localStorage.session).id}
+function addJB(){let z=JSON.parse(localStorage.session),t=jb.value.trim(),f=jbf.files[0];if(f&&!t)t="Uploaded: "+f.name;if(!t)return alert("Masukkan prompt atau upload file.");z.jb.push({ai:aic.querySelector(".sel")?.textContent||"SEMUA",text:t});localStorage.session=JSON.stringify(z);if(z.role!="OWNER"){let a=users(),i=a.findIndex(x=>x.id==z.id);if(i>=0){a[i]=z;save(a)}}jb.value="";renderJB()}
+function renderJB(){let z=JSON.parse(localStorage.session);jbl.innerHTML=(z.jb||[]).map((x,i)=>`<div class="notice"><b>${x.ai}</b><br>${x.text}<br><button class="small" onclick="this.parentElement.remove()">DELETE</button></div>`).join("")}
+function dm(x){dc.classList.toggle("hidden",!x);df.classList.toggle("hidden",x);dm1.classList.toggle("active",x);dm2.classList.toggle("active",!x)}
+function deploy(){let n=prompt("Nama domain tanpa .vercel.app","website-kita-bersama");if(n)dr.innerHTML=`<div class="notice">Domain: <b>${n.replace(/[^a-z0-9-]/gi,"-").toLowerCase()}.vercel.app</b><br><span class="muted">UI siap. Publikasi Vercel membutuhkan backend/API atau deployment manual.</span></div>`}
+async function source(){let u=su.value.trim();if(!/^https?:\/\//.test(u))return alert("Gunakan URL http/https.");sm.classList.remove("hidden");sm.textContent="Monitoring: requesting public HTML...";try{let r=await fetch(u);let t=await r.text();so.classList.remove("hidden");so.textContent=t;sp.classList.remove("hidden");window.src=t;sm.textContent="✓ HTML berhasil diambil. CORS tetap berlaku."}catch(e){sm.textContent="Gagal: server tidak mengizinkan akses browser/CORS."}}
+function preview(){let w=open("");w.document.write(window.src||"");w.document.close()}
+function unlock(){if(ou.value==OWNER.u&&op.value==OWNER.p){ag.classList.add("hidden");ac.classList.remove("hidden")}else am.textContent="Kredensial Owner salah."}
+function findM(){let z=users().find(x=>x.id==fc.value);fr.classList.remove("hidden");fr.textContent=z?`Username: ${z.u} · Role: ${z.role} · ID: ${z.id}`:"Member tidak ditemukan."}
+function delM(){let a=users(),i=a.findIndex(x=>x.id==xd.value);if(i<0)return alert("Member tidak ditemukan.");a.splice(i,1);save(a);alert("Member dihapus.")}
+function ban(){let a=users(),z=a.find(x=>(bu.value&&x.u==bu.value)||(bc.value&&x.id==bc.value));if(!z)return alert("Member tidak ditemukan.");z.ban=true;save(a);alert("Member dibanned.")}
+function theme(n){Object.entries(T[n]).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));localStorage.theme=n}
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));$(b.dataset.p).classList.remove("hidden")});
+let s=localStorage.session;if(s)open(JSON.parse(s));theme(localStorage.theme||"DEFAULT");
+</script></body></html>
